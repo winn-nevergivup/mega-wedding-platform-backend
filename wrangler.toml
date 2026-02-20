@@ -1,0 +1,42 @@
+name = "mega-wedding-platform-backend"
+account_id = "4c17e326c2ef06fbdf3751ae0ca2f3a5"
+workers_dev = true
+compatibility_date = "2026-02-05"
+compatibility_flags = ["nodejs_compat"]
+main = "app.ts"
+
+# KV untuk production
+[[kv_namespaces]]
+binding = "CACHE"
+id = "38ac7cbbfdd545138efb44e0ca452e84"   # KV utama production
+
+[[kv_namespaces]]
+binding = "RATE_LIMIT_KV"
+id = "38ac7cbbfdd545138efb44e0ca452e84" # KV namespace id
+
+
+[env.production.vars]
+TURSO_DB_URL = "libsql://weddinginvitation-windiazmy.aws-ap-northeast-1.turso.io"
+TURSO_DB_AUTH_TOKEN = "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhIjoicnciLCJpYXQiOjE3NzAyODM4NjQsImlkIjoiNTE2NjViMzQtNjVmZi00NTU4LWE3MmYtOTgxYmFiZWFiYjE2IiwicmlkIjoiNDhhZmVjNTctMWIyYS00OTMyLTllMzktOWZmMTBmYmYzZWY4In0.qa8YENRy5A2YWwivqTWHRR_f6Xq9mFdKNcqUTGcwu53dlJK1hSg1YqhhE9wG2zzTfjrBjnqPkiPl__DpVglnCw"
+JWT_SECRET = "mecca2028okey"
+NODE_ENV = "production"
+GOOGLE_CLIENT_ID = "478252758432-eqbhkbrp33pe7iglg7rhtkv8tteqdkvu.apps.googleusercontent.com"
+
+
+# Environment dev / preview
+[env.dev.vars]
+TURSO_DB_URL = "libsql://weddinginvitation-windiazmy.aws-ap-northeast-1.turso.io"
+TURSO_DB_AUTH_TOKEN = "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhIjoicnciLCJpYXQiOjE3NzAyODM4NjQsImlkIjoiNTE2NjViMzQtNjVmZi00NTU4LWE3MmYtOTgxYmFiZWFiYjE2IiwicmlkIjoiNDhhZmVjNTctMWIyYS00OTMyLTllMzktOWZmMTBmYmYzZWY4In0.qa8YENRy5A2YWwivqTWHRR_f6Xq9mFdKNcqUTGcwu53dlJK1hSg1YqhhE9wG2zzTfjrBjnqPkiPl__DpVglnCw"
+JWT_SECRET = "mecca2028okey"
+NODE_ENV = "development"
+GOOGLE_CLIENT_ID = "478252758432-eqbhkbrp33pe7iglg7rhtkv8tteqdkvu.apps.googleusercontent.com"
+
+[[env.dev.kv_namespaces]]
+binding = "CACHE"
+id = "38ac7cbbfdd545138efb44e0ca452e84"              # bisa dikosongin / dummy, tapi wajib ada
+preview_id = "4e6e052558d54c2baf2af5303b10b075" 
+
+[[env.dev.kv_namespaces]]
+binding = "RATE_LIMIT_KV"
+id = "38ac7cbbfdd545138efb44e0ca452e84"
+preview_id = "4e6e052558d54c2baf2af5303b10b075"
